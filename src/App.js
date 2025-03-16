@@ -1,11 +1,22 @@
 import React from "react";
-import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar"; // 👈 추가
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-200 flex justify-center items-center">
-      <h1 className="text-4xl font-bold text-blue-500">Hello, Tailwind!</h1>
-    </div>
+    <Router>
+      <div className="bg-white dark:bg-black min-h-screen">
+        <Navbar /> {/* 👈 네비게이션 바 추가 */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
