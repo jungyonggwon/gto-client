@@ -1,11 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client"; // ✅ 최신 방식으로 변경
 import App from "./App";
-import "./index.css";  // 스타일 적용을 위한 import
+import "./index.css"; 
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById("root")  // 'root'라는 ID를 가진 div에 App을 렌더링
+  </React.StrictMode>
 );

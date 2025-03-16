@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+function Navbar() {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("theme") === "dark"
   );
 
   useEffect(() => {
+    // ✅ 다크모드 클래스 적용
     if (darkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -17,22 +18,26 @@ const Navbar = () => {
   }, [darkMode]);
 
   return (
-    <nav className="bg-gray-200 dark:bg-gray-800 p-4 fixed top-0 left-0 w-full shadow-md">
-      <ul className="flex justify-between items-center max-w-4xl mx-auto">
-        <div className="flex gap-4">
-          <li><Link to="/" className="text-gray-800 dark:text-white">Home</Link></li>
-          <li><Link to="/about" className="text-gray-800 dark:text-white">About</Link></li>
-          <li><Link to="/contact" className="text-gray-800 dark:text-white">Contact</Link></li>
-        </div>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white px-4 py-2 rounded"
-        >
-          {darkMode ? "Light Mode ☀️" : "Dark Mode 🌙"}
-        </button>
+    <nav className="bg-gray-800 p-4 shadow-md flex justify-between items-center">
+      <ul className="flex space-x-4">
+        <li>
+          <Link to="/" className="text-white hover:text-gray-300">Home</Link>
+        </li>
+        <li>
+          <Link to="/about" className="text-white hover:text-gray-300">About</Link>
+        </li>
+        <li>
+          <Link to="/contact" className="text-white hover:text-gray-300">Contact</Link>
+        </li>
       </ul>
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="bg-gray-700 text-white px-4 py-2 rounded"
+      >
+        {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
     </nav>
   );
-};
+}
 
 export default Navbar;

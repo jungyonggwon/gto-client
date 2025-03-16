@@ -1,12 +1,12 @@
 import React from "react";
 
-const Home = () => {
+function Home() {
   return (
-    <div className="text-center p-10 text-gray-900 dark:text-white">
-      <h2 className="text-3xl font-bold">Welcome to the Home Page</h2>
-      <p className="mt-4 text-lg">다크 모드를 사용하려면 오른쪽 상단 버튼을 눌러보세요!</p>
+    <div className="text-center text-black dark:text-white mt-16">
+      <h1 className="text-3xl font-bold">Home Page</h1>
+      <p>Welcome to the home page!</p>
     </div>
   );
-};
+}
 
 export default Home;
